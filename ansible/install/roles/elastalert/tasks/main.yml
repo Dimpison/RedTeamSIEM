@@ -9,7 +9,7 @@
 
 - name: Update all packages
   yum: 
-    name: * 
+    name: "*" 
     state: latest
 
 - name: Install Puthon 3.6
