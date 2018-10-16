@@ -21,19 +21,19 @@
       - python36u-pip
     state: present
 
-- name: Symlink Python3.6 to Python
-  file: 
-    src: "/usr/bin/python3.6"
-    dest: "/usr/bin/python"
-    state: link
-
-#- name: Install Elastalert deps
-#  yum:
-#    name: gcc, gcc-c++, python-devel, libffi-devel, openssl-devel
+- name: Install Elastalert deps
+  yum:
+    name: 
+      - gcc
+      - gcc-c++
+      - python-devel
+      - libffi-devel
+      - openssl-devel
 
 - name: Install Elastalert
   pip:
     name: elastalert
+    executable: pip3.6
   become: true    
 
 - name: Install Supervisord
