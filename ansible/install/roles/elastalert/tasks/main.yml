@@ -2,22 +2,34 @@
 # Install/run elastalert
 #
 
-- name: Symlink Python2.7 to Python
+- name: Install Python 3.6
+  yum:
+    name: https://centos7.iuscommunity.org/ius-release.rpm
+    state: present
+
+- name: Update all packages
+  yum: 
+    name: * 
+    state: latest
+
+- name: Install Puthon 3.6
+  yum:
+    name:
+      - python36u 
+      - python36u-libs 
+      - python36u-devel 
+      - python36u-pip
+    state: present
+
+- name: Symlink Python3.6 to Python
   file: 
-    src: "/usr/bin/python2.7"
+    src: "/usr/bin/python3.6"
     dest: "/usr/bin/python"
     state: link
-  become: true
-
-- name: Install Pip
-  yum: 
-    name: python-pip
-  become: true
 
 - name: Install Elastalert deps
   yum:
     name: gcc, gcc-c++, python-devel, libffi-devel, openssl-devel
-  become: true
 
 - name: Install Elastalert
   pip:
