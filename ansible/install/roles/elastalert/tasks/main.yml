@@ -2,7 +2,7 @@
 # Install/run elastalert
 #
 
-- name: Install Python 3.6
+- name: Install ius-release
   yum:
     name: https://centos7.iuscommunity.org/ius-release.rpm
     state: present
@@ -12,7 +12,7 @@
     name: "*" 
     state: latest
 
-- name: Install Puthon 3.6
+- name: Install Python 3.6
   yum:
     name:
       - python36u 
@@ -27,9 +27,9 @@
     dest: "/usr/bin/python"
     state: link
 
-- name: Install Elastalert deps
-  yum:
-    name: gcc, gcc-c++, python-devel, libffi-devel, openssl-devel
+#- name: Install Elastalert deps
+#  yum:
+#    name: gcc, gcc-c++, python-devel, libffi-devel, openssl-devel
 
 - name: Install Elastalert
   pip:
