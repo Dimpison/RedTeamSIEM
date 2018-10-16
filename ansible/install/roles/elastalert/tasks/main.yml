@@ -27,6 +27,7 @@
       - python-devel
       - libffi-devel
       - openssl-devel
+    state: present
 
 - name: Install Elastalert
   pip:
