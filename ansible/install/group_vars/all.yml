@@ -1,5 +1,5 @@
 ---
-
+ansible_python_interpreter: /usr/bin/python2.7
 # Default Ansible user
 # change this if you use a non-root user for running Ansible playbooks
 ansible_system_user: dima
