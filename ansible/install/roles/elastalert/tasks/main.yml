@@ -8,7 +8,7 @@
     state: present
 
 - name: Update all packages
-  command: yum update
+  command: "yum update"
 
 - name: Install Python 3.6
   yum:
