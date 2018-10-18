@@ -2,22 +2,27 @@
 # Install/run elastalert
 #
 
-- name: Install ius-release
-  yum:
-    name: https://centos7.iuscommunity.org/ius-release.rpm
-    state: present
+- name: check to see if pip is already installed
+  command: "pip --version"
+  ignore_errors: true
+  register: pip_is_installed
+  changed_when: false
 
-- name: Update all packages
-  command: "yum update"
+- block:
 
-- name: Install Python 3.6
-  yum:
-    name:
-      - python36u 
-      - python36u-libs 
-      - python36u-devel 
-      - python36u-pip
-    state: present
+    - name: download get-pip.py
+      get_url: url=https://bootstrap.pypa.io/get-pip.py  dest=/tmp
+    
+    - name: install pip
+      command: "python /tmp/get-pip.py"
+    
+    - name: delete get-pip.py
+      file: state=absent path=/tmp/get-pip.py
+
+  when: pip_is_installed.rc != 0
+  
+- name: yum update
+  command: yum update -y
 
 - name: Install Elastalert deps
   yum:
@@ -29,13 +34,23 @@
       - openssl-devel
     state: present
 
-- name: Install Elastalert
+- name: Install Elastalert and dependencies
   pip:
-    name: elastalert
-    executable: pip3.6
-  become: true    
+    name:
+      - six>=1.10.0
+      - requests-toolbelt
+      - requests-oauthlib>=0.6.1
+      - ordereddict
+      - defusedxml
+      - argparse
+      - s3transfer<0.2.0
+      - python-dateutil<2.7.0
+      - enum34
+      - asn1crypto>=0.21.0
+      - urllib3==1.21.1
+      - elastalert
 
-- name: Install Supervisord
+- name: Install Supervisor
   easy_install:
     name: supervisor
   become: true
