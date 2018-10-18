@@ -48,6 +48,7 @@
       - enum34
       - asn1crypto>=0.21.0
       - urllib3==1.21.1
+      - setuptools>=1.1.6
       - elastalert
 
 - name: Install Supervisor
