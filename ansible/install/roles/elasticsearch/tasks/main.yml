@@ -19,11 +19,10 @@
   become: true
 
 - name: Install elasticsearch and openjdk
-  yum: 
-    name: 
-      - elasticsearch
-      - java-openjdk-headless
-    state: present
+  yum: name={{ item }} state=present 
+  with_items:
+    - elasticsearch
+    - java-openjdk-headless
 
 - name: Copy templated elasticsearch.yml
   template:
