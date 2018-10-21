@@ -9,6 +9,10 @@
       - libsemanage-python
     state: present
 
+- name: Disable SELinux
+  selinux:
+    state: disabled
+
 - name: Copy elasticsearch yum repo file
   copy:
     src=elasticsearch.repo
