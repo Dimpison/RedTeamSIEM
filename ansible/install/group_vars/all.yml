@@ -23,7 +23,7 @@ epel_repo: https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rp
 # as the current firewall code will detect this and leave it alone.
 # if you really, really want to disable checking/applying service firewall rules
 # then change to 'false' or empty
-manage_firewall: true
+manage_firewall: false
 
 ### nginx ###
 # add nonstandard port here for undercloud usage
@@ -60,7 +60,7 @@ logstash_localsyslog_port: 5000
 ### rsyslog options
 # set this to true if you want to accept
 # external syslog traffic
-syslog_listen_external: false
+syslog_listen_external: true
 ### fluentd options ###
 fluentd_syslog_port: 42185
 fluentd_http_port: 9919
@@ -72,7 +72,7 @@ fluentd_debug_port: 24230
 # to true
 # we will set this to false by default
 es_local_port: 9200
-es_listen_external: false
+es_listen_external: true
 ### install curator tool ###
 # curator is the recommended tool for managing elasticsearch indexes
 # https://www.elastic.co/guide/en/elasticsearch/client/curator/current/index.html
