@@ -24,7 +24,6 @@ Note: This repository is a companion to a talk given at BSides Pittsburgh 2018.
 
 ## Roadmap
 
-- Update ELK services to latest version
-- Refine playbooks added to reference repo
-- Evaluate alternatives (e.g. Fluentd vs Logstash, Grafana vs Kibana, Rsyslog vs Beats)
-
+- Investigate, configure and run cobaltstrike
+- Review logs on all components of schema
+- Set correct webhook url for elastalert
