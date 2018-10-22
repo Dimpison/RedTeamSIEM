@@ -82,6 +82,14 @@
     dest=/opt/elastalert/config.yml
   become: true
 
+- name: Copy elastalert rules
+  copy:
+    src: "{{ item }}"
+    dest: /opt/elastalert/rules/
+    mode: 755
+  with_fileglob:
+    - files/*
+
 - name: Create Elastalert index
   shell: elastalert-create-index --config /opt/elastalert/config.yml 
   become: true
