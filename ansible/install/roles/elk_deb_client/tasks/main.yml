@@ -57,14 +57,12 @@
   template:
     src=filebeat.yml.j2
     dest=/etc/filebeat/filebeat.yml
-  force: true
   become: true
 
 - name: Copy Metricbeat config to directory
   template:
     src=metricbeat.yml.j2
     dest=/etc/metricbeat/metricbeat.yml
-  force: true
   become: true
 
 - name: Restart Filebeat
