@@ -9,8 +9,7 @@ filter:
     query_string: 
       query: 'system.cpu.total.pct:>0.80'
 alert:
-- "ms_teams"
-ms_teams_webhook_url:
-- "<webhook url here>"
-ms_teams_alert_summary: "Traffic hit for specific path"
+- "telegram"
+telegram_bot_token: 471165926:AAHGbQmR4XiMI4Mu15xOLY28dgQNZ8M_z4c
+telegram_room_id: "@cdp_devops_bot"
 
