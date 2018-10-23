@@ -27,3 +27,4 @@ Note: This repository is a companion to a talk given at BSides Pittsburgh 2018.
 - Investigate, configure and run cobaltstrike
 - Review logs on all components of schema
 - Set correct webhook url for elastalert
+- Leave only one client node
