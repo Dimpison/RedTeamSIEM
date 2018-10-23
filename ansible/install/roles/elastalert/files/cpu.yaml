@@ -1,15 +1,15 @@
 name: CPU over 80
 type: frequency
-index: metricbeat*
+index: logstash*
 num_events: 10
 timeframe:
   minutes: 2
 filter:
 - query:
     query_string: 
-      query: 'system.cpu.total.pct:>0.80'
+      query: 'system.load.5:>5'
 alert:
 - "telegram"
 telegram_bot_token: 471165926:AAHGbQmR4XiMI4Mu15xOLY28dgQNZ8M_z4c
-telegram_room_id: "@cdp_devops_bot"
+telegram_room_id: "-255551161"
 
