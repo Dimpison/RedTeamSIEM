@@ -1,16 +1,18 @@
 name: CPU over 80
 type: frequency
-index: metricbeat*
+index: logstash*
 num_events: 10
 timeframe:
   minutes: 2
 filter:
 - query:
     query_string: 
-      query: 'system.cpu.total.pct:>0.80'
+      query: 'system.load.5:>3.1'
+alert_text: |
+    Bot ha detectado un uso de CPU en {0} # I want to multiply by 100
+alert_text_args:
+  - hostname
 alert:
-- "ms_teams"
-ms_teams_webhook_url:
-- "<webhook url here>"
-ms_teams_alert_summary: "Traffic hit for specific path"
-
+- "telegram"
+telegram_bot_token: 471165926:AAHGbQmR4XiMI4Mu15xOLY28dgQNZ8M_z4c
+telegram_room_id: "-255551161"
