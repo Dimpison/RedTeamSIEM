@@ -14,7 +14,7 @@ output {
   elasticsearch {
     hosts => "localhost:{{es_local_port}}"
     manage_template => false
-    index => "%{[@metadata][beat]}-%{+YYYY.MM.dd}"
-    document_type => "%{[@metadata][type]}"
+    index => "filebeat-%{+YYYY.MM.dd}"
+    document_type => "log"
   }
 }
