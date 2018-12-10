@@ -63,11 +63,11 @@ es_listen_external: true
 # DO NOT CHANGE THIS UNLESS YOU CHANGE IT ON ES
 xpack_elastic_user_password: changeme
 # install elastic x-pack
-install_elasticsearch_xpack: true
+install_elasticsearch_xpack: false
 # install kibana x-pack
-install_kibana_xpack: true
+install_kibana_xpack: false
 # install logstash x-pack
-install_logstash_xpack: true
+install_logstash_xpack: false
 
 #Install Metricbeat
 install_metricbeat: true
