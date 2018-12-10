@@ -210,7 +210,7 @@
   wait_for:
     host: localhost
     port: '{{ logstash_syslog_port }}'
-    delay: 10
+    delay: 100
     connect_timeout: 5
     timeout: 420
     state: started
