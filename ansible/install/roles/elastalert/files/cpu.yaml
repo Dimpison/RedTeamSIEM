@@ -1,6 +1,6 @@
 name: CPU over 80
 type: frequency
-index: logstash*
+index: metricbeat*
 num_events: 10
 timeframe:
   minutes: 2
