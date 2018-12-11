@@ -24,13 +24,13 @@ metricbeat.modules:
 output:
 
   ### Elasticsearch as output
-  #elasticsearch:
-  logstash:
+  elasticsearch:
+  #logstash:
     # Array of hosts to connect to.
     # Scheme and port can be left out and will be set to the default (http and 9200)
     # In case you specify and additional path, the scheme is required: http://localhost:9200/path
     # IPv6 addresses should always be defined as: https://[2001:db8::1]:9200
-    hosts: ["{{ elk_server }}:{{ logstash_syslog_port }}"]
+    hosts: ["{{ elk_server }}:9200"]
     bulk_max_size: 1024
 
     index: "packetbeat"
@@ -128,10 +128,10 @@ output:
       
 
   ### Logstash as output
-  logstash:
+  #logstash:
     # The Logstash hosts
-    hosts: ["{{ elk_server }}:{{ logstash_syslog_port }}"]
-    bulk_max_size: 1024
+    #hosts: ["{{ elk_server }}:{{ logstash_syslog_port }}"]
+    #bulk_max_size: 1024
     # Number of workers per Logstash host.
     #worker: 1
 
@@ -144,15 +144,15 @@ output:
     #index: filebeat
 
     # tls configuration. By default is off.
-    ssl:
+    #ssl:
       # List of root certificates for HTTPS server verifications
-      certificate_authorities: [/etc/beat/beat-forwarder.crt]
+      #certificate_authorities: [/etc/beat/beat-forwarder.crt]
 
       # Certificate for TLS client authentication
-      certificate: "/etc/beat/beat-forwarder.crt"
+      #certificate: "/etc/beat/beat-forwarder.crt"
 
       # Client Certificate Key
-      key: "/etc/beat/beat-forwarder.key"
+      #key: "/etc/beat/beat-forwarder.key"
 
       # Controls whether the client verifies server certificates and host name.
       # If insecure is set to true, all server host names and certificates will be
@@ -160,7 +160,7 @@ output:
       # man-in-the-middle attacks. Use only for testing.
       #insecure: true
       # specify protocols here:
-      supported_protocols: [TLSv1.0, TLSv1.1, TLSv1.2, SSLv3]
+      #supported_protocols: [TLSv1.0, TLSv1.1, TLSv1.2, SSLv3]
       # Configure cipher suites to be used for TLS connections
       #cipher_suites: []
 
@@ -169,10 +169,9 @@ output:
 
       # Configure minimum TLS version allowed for connection to logstash
       #min_version: 1.0
-      min_version: 1.0
+  
       # Configure maximum TLS version allowed for connection to logstash
       #max_version: 1.2
-      max_version: 1.2
 
 
   ### File as output
