@@ -1,4 +1,4 @@
-name: CPU over 80
+name: Load average for 5 minutes over 5
 type: frequency
 index: metricbeat*
 num_events: 10

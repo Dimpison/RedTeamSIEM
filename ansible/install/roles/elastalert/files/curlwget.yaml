@@ -9,8 +9,7 @@ filter:
     query_string: 
       query: "(message:curl OR message:wget) AND (message:GET OR message:POST)"
 alert:
-- "ms_teams"
-ms_teams_webhook_url:
-- "<webhook URL here>"
-ms_teams_alert_summary: "Suspected analyst activity"
+- "telegram"
+telegram_bot_token: 471165926:AAHGbQmR4XiMI4Mu15xOLY28dgQNZ8M_z4c
+telegram_room_id: "-255551161"
 
